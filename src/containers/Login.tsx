@@ -59,7 +59,7 @@ const Login: FC = () => {
         Login
       </Button>
 
-      <p> Looking to rent for a vehicle for your trip? Share your credentials <a href={'http://' + config.wallet_url + '/share-credentials?token=' + shareCredRequestToken} target='_blank'>here!</a></p>
+      <p> Looking to rent for a vehicle for your trip? Share your credentials <a href={config.wallet_url + '/share-credentials?token=' + shareCredRequestToken} target='_blank'>here!</a></p>
     </Form>
   );
 };
