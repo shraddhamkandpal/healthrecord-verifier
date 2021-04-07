@@ -5,7 +5,7 @@ import { Nav, Navbar, Spinner } from "react-bootstrap";
 import Login from "./containers/Login";
 import Home from "./containers/Home";
 import MessageListener from "./containers/MessageListener";
-import drivingLicenseLogo from './assets/images/icons/driving-license.svg';
+import carLogo from './assets/images/icons/car.png';
 import companyNameLogo from './assets/images/icons/company-name.png';
 
 const NavbarButtons = () => {
@@ -61,8 +61,8 @@ const App: FC = () => (
   <div className="App">
     <Navbar collapseOnSelect className='navbar bg-orange'>
       <Navbar.Brand>
-        <img src={drivingLicenseLogo} className='logo-icon' alt='logo'/>
-        <img src={companyNameLogo} className='logo-name' alt='logo-name'/>
+        <img src={carLogo} className='logo-icon' alt='logo'/>
+        <img src={companyNameLogo} className='logo-name' alt='logo'/>
       </Navbar.Brand>
       <Navbar.Toggle />
       <Navbar.Collapse>
