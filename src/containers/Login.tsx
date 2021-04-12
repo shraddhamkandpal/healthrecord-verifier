@@ -2,6 +2,7 @@ import React, { FC, useState, useEffect } from "react";
 import { useAuthentication } from "./Authentication";
 import { Button, Form, FormControl } from "react-bootstrap";
 import config from '../config';
+import './Login.css';
 
 const Login: FC = () => {
   const { loading, login } = useAuthentication();
@@ -37,30 +38,39 @@ const Login: FC = () => {
   // }, [])
 
   return (
-    <Form style={{ width: 280 }}>
-      <Form.Group controlId="username">
-        <Form.Label>Username</Form.Label>
-        <FormControl
-          autoFocus
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </Form.Group>
-      <Form.Group controlId="password">
-        <Form.Label>Password</Form.Label>
-        <FormControl
-          type="password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </Form.Group>
-      <Button block disabled={loading} onClick={onLogin}>
-        Login
-      </Button>
+    <div className='Login'>
+      <form className='Form'>
+        <h1 className='Title'>Verifier Login</h1>
+        <p className='Info'>
+          Login in order to continue
+        </p>
 
-      <p> Looking to rent for a vehicle for your trip? Share your credentials <a href={config.wallet_url + '/share-credentials?token=' + shareCredRequestToken} target='_blank'>here!</a></p>
-    </Form>
+        <Form style={{ width: 280 }}>
+          <Form.Group controlId="username">
+            <Form.Label>Username</Form.Label>
+            <FormControl
+              autoFocus
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </Form.Group>
+          <Form.Group controlId="password">
+            <Form.Label>Password</Form.Label>
+            <FormControl
+              type="password"
+              value={password}
+              onChange={(event) => setPassword(event.target.value)}
+            />
+          </Form.Group>
+          <Button block disabled={loading} onClick={onLogin}>
+            Login
+          </Button>
+         <p> Looking to rent for a vehicle for your trip? Share your driving license credentials <a href={config.wallet_url + '/share-credentials?token=' + shareCredRequestToken} target='_blank'>here!</a></p>
+        </Form>
+      </form>
+    </div>
+    
   );
 };
 
