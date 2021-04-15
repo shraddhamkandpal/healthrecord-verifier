@@ -1,16 +1,16 @@
 import React, { FC } from "react";
-import { useAuthentication } from "./Authentication";
+// import { useAuthentication } from "./Authentication";
 import { Card } from "react-bootstrap";
 import "./Home.css";
 import CredentialTable from './CredentialTable';
 const Home: FC = () => {
-  const { sdk } = useAuthentication();
-  const did = sdk!.did;
+  // const { sdk } = useAuthentication();
+  // const did = sdk!.did;
   return (
     <div className="Home">
       <Card>
         <Card.Header as="h5">
-          Verifiable Credential Index
+          Applicants' Credentials Table
         </Card.Header>
         <Card.Body children={<CredentialTable />} />
       </Card>

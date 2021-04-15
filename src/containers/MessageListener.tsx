@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
+/* eslint-disable no-script-url */
 import JwtService from "@affinidi/common/dist/services/JwtService";
 import React, { useEffect, useState } from "react";
 import { format } from "timeago.js";
@@ -68,6 +70,7 @@ const MessageList = ({ messageList, onClick, onClose }: Props) => {
 };
 
 const MessageListener = () => {
+  // eslint-disable-next-line no-unused-vars
   const [_, setGlobalToken] = useGlobalTokenValue();
   const { message } = useAuthentication();
 
