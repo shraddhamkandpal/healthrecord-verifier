@@ -2,8 +2,8 @@ import React, { FC } from "react";
 import "./App.css";
 import { useAuthentication } from "./containers/Authentication";
 import { Nav, Navbar, Spinner } from "react-bootstrap";
-import Login from "./containers/Login";
 import Home from "./containers/Home";
+import Dashboard from "./containers/Dashboard";
 import MessageListener from "./containers/MessageListener";
 import carLogo from './assets/images/icons/car.png';
 import companyNameLogo from './assets/images/icons/company-name.png';
@@ -49,12 +49,12 @@ const AppBody = () => {
     return (
       <>
         <MessageListener />
-        <Home />
+        <Dashboard />
       </>
     );
   }
 
-  return <Login />;
+  return <Home />;
 };
 
 const App: FC = () => (

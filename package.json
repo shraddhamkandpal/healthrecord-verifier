@@ -15,6 +15,7 @@
     "react": "^16.13.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.4",
     "react-select": "^3.1.1",
     "react-use": "^15.3.4",
@@ -43,6 +44,7 @@
     ]
   },
   "devDependencies": {
+    "@types/react-router-dom": "^5.1.7",
     "@types/react-select": "^3.0.26",
     "prettier": "2.2.0"
   }
