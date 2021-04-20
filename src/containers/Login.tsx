@@ -35,6 +35,7 @@ const Login: FC = () => {
               onChange={(e) => setUsername(e.target.value)}
             />
           </Form.Group>
+
           <Form.Group controlId="password">
             <Form.Label>Password</Form.Label>
             <FormControl
@@ -43,9 +44,11 @@ const Login: FC = () => {
               onChange={(event) => setPassword(event.target.value)}
             />
           </Form.Group>
+
           <Button block disabled={loading} onClick={onLogin}>
             Login
           </Button>
+
          <p> Looking to rent for a vehicle for your trip? Share your driving license credentials <a href={config.wallet_url + '/share-credentials?token=' + shareCredRequestToken} target='_blank' rel="noopener noreferrer">here!</a></p>
         </Form>
       </div>
