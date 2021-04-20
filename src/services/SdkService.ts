@@ -50,16 +50,20 @@ class SdkService {
     return this._networkMember.readEncryptedMessage(message);
   }
 
-  async generateCredentialShareRequestToken(
-    credentialRequirements: any,
-    issuerDid?: string,
-    options?: any
-  ): Promise<string> {
-    return this._networkMember.generateCredentialShareRequestToken(
-      credentialRequirements,
-      issuerDid,
-      options
+  static async fromLoginAndPassword(
+    username: string,
+    password: string
+  ): Promise<SdkService> {
+    const networkMember = await Wallet.fromLoginAndPassword(
+      username,
+      password,
+      SDK_OPTIONS
     );
+    return new SdkService(networkMember);
+  }
+
+  async signOut() {
+    await this._networkMember.signOut();
   }
 
   async verifyCredentialShareResponseToken(
@@ -72,10 +76,6 @@ class SdkService {
       credentialShareRequest,
       shouldOwn
     );
-  }
-
-  async signOut() {
-    await this._networkMember.signOut();
   }
 
   static async fromAccessToken(accessToken: string): Promise<SdkService> {
@@ -94,18 +94,6 @@ class SdkService {
       ...SDK_OPTIONS,
       cognitoUserTokens: { accessToken } as any,
     });
-    return new SdkService(networkMember);
-  }
-
-  static async fromLoginAndPassword(
-    username: string,
-    password: string
-  ): Promise<SdkService> {
-    const networkMember = await Wallet.fromLoginAndPassword(
-      username,
-      password,
-      SDK_OPTIONS
-    );
     return new SdkService(networkMember);
   }
 }
