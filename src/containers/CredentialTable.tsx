@@ -18,10 +18,9 @@ const CredentialTable = () => {
         setCredentialShareResponseToken(prevState => [...prevState, globalToken]);
       }
     }, [globalToken]);
+
     const onClickValidate = async (token: string) => {
       const result = await sdk!.verifyCredentialShareResponseToken(token);
-      console.log('revalidating from this button')
-      console.log(result)
       const currentVCState = vcData
       const newVCState = currentVCState.map((data:any) => {
         if (data.token === token) {
@@ -31,6 +30,7 @@ const CredentialTable = () => {
       })
       setVCData(newVCState)
     }
+
     useEffect(() => {
       const onValidate = async (token: string) => {
         const result = await sdk!.verifyCredentialShareResponseToken(token);
@@ -39,14 +39,20 @@ const CredentialTable = () => {
         if (credentialType === 'IDDocumentCredentialPersonV1') {
           drivingClass = JSON.parse(result.suppliedCredentials[0].credentialSubject.data.hasIDDocument?.hasIDDocument.idClass).drivingClass;
         }
+
         setVCData(prevState => [...prevState, {token, validatedResult: result, drivingClass}])
       }
       if (credentialShareResponseToken) {
         credentialShareResponseToken.map((token: string) => {
-          return onValidate(token);
+          // Check if the vcData already has the token = means it was validated before
+          const existingData = vcData.filter(data => data.token == token)
+          if (existingData.length == 0){
+            return onValidate(token);
+          }
         })
       }
     }, [credentialShareResponseToken, sdk])
+
     return <div>
         <Table bordered>
               <thead className="thead-light">
