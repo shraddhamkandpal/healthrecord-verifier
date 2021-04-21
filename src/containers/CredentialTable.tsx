@@ -61,7 +61,7 @@ const CredentialTable = () => {
                   <th>Name</th>
                   <th>Driving Class</th>
                   <th>Validated</th>
-                  <th>Action</th>
+                  {/* <th>Action</th> */}
                 </tr>
               </thead>
               <tbody>
@@ -75,7 +75,7 @@ const CredentialTable = () => {
                         <img src={CrossCircle} alt='cross' style={{height: '28px'}} />
                     }
                     </td>
-                    <td><Button onClick={() => onClickValidate(data.token)}>Validate</Button></td>
+                    {/* <td><Button onClick={() => onClickValidate(data.token)}>Validate</Button></td> */}
                   </tr>
                   )
                 })}
