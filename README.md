@@ -1,44 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Affinidi Use Case Implementation - Driving License - Verifier
 
-## Available Scripts
+## Table of contents
 
-In the project directory, you can run:
+- [Introduction](#introduction)
+- [Initial Set Up](#how-to-setup)
 
-### `npm run start`
+  - [Generate Affinidi API Key](#generate-api-key)
+  - [Configure .env File](#configure-.env-file)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- [How to run](#how-to-run)
+  - [Sequence](#sequence)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Introduction
 
-### `npm test`
+Welcome to Driving License Use Case - Verifier application. In this application, you will be able to see how does a car rental shop request driving license credentials from an applicant who would like to rent a car and thereafter the car rental shop would be able to view the incoming credentials and checks whether is the credentials verified before proceeding with the transaction.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You can either run this program in your local machine or try it out here: https://usecases.drivinglicense-verifier.vc-generator.com/
 
-### `npm run build`
+## Initial Set Up
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Generate API Key
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Before you could use our API and SDK services, you would have to register to get the API keys.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Go to apikey.affinidi.com
+2. Register for an account
+3. Store the `API Key` and `API Key Hash` safely
 
-### `npm run eject`
+### Configure .env file
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. Open terminal and navigate to the project folder
+2. Run `cp .env.example .env`
+3. Fill in the .env file with the details that you have gathered in the previous steps
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+REACT_APP_API_KEY=<<Afffinidi's API Key>>
+REACT_APP_API_KEY_HASH=<<Affinidi's API Key Hash>>
+REACT_APP_ENVIRONMENT=prod
+REACT_APP_WALLET_URL=http://localhost:3001
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## How to run
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Open terminal and navigate to the project folder
+2. Run `npm install`
+3. Run `cp .env.example .env`
+4. Populate the credentials in `.env`
+5. Run `npm start`
 
-## Learn More
+### Sequence
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Run Issuer, Holder and Verifier in this sequence in your local machine.
