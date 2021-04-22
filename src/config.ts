@@ -23,5 +23,5 @@ export default {
   wallet_url: process.env.REACT_APP_WALLET_URL || 'http://localhost:3001',
   messagesBaseUrl:
     process.env.REACT_APP_MESSAGES_BASE_URL ||
-    "https://affinidi-messages.dev.affinity-project.org",
+    `https://affinidi-messages.${decodeEnv(process.env.REACT_APP_ENVIRONMENT || process.env.NODE_ENV)}.affinity-project.org`,
 };
