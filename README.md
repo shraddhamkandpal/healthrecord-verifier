@@ -1,4 +1,4 @@
-# Affinidi Use Case Implementation - Driving License - Verifier
+# Affinidi Use Case Implementation - Health Record - Verifier
 
 ## Table of contents
 
@@ -14,9 +14,8 @@
 
 ## Introduction
 
-Welcome to Driving License Use Case - Verifier application. In this application, you will be able to see how does a car rental shop request driving license credentials from an applicant who would like to rent a car and thereafter the car rental shop would be able to view the incoming credentials and checks whether is the credentials verified before proceeding with the transaction.
+Welcome to Health Wallet Use Case - Verifier application. In this application, you will be able to see how does a health record from an applicant be shared and thereafter the hospital be able to view the incoming credentials and checks whether is the health record is verified before proceeding with the transaction.
 
-You can either run this program in your local machine or try it out here: https://usecases.drivinglicense-verifier.vc-generator.com/
 
 ## Initial Set Up
 

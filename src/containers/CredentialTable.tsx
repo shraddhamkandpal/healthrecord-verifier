@@ -36,11 +36,13 @@ const CredentialTable = () => {
         const result = await sdk!.verifyCredentialShareResponseToken(token);
         const credentialType = result.suppliedCredentials[0].type[(result.suppliedCredentials[0].type.length)-1]
         let drivingClass: string | undefined = undefined
+        let aadhaarId: string | undefined = undefined
         if (credentialType === 'IDDocumentCredentialPersonV1') {
           drivingClass = JSON.parse(result.suppliedCredentials[0].credentialSubject.data.hasIDDocument?.hasIDDocument.idClass).drivingClass;
+          aadhaarId = JSON.parse(result.suppliedCredentials[0].credentialSubject.data.hasIDDocument?.hasIDDocument.idClass).drivingLicenseID;
         }
 
-        setVCData(prevState => [...prevState, {token, validatedResult: result, drivingClass}])
+        setVCData(prevState => [...prevState, {token, validatedResult: result, drivingClass, aadhaarId}])
       }
       if (credentialShareResponseToken) {
         credentialShareResponseToken.map((token: string) => {
@@ -57,9 +59,9 @@ const CredentialTable = () => {
         <Table bordered>
               <thead className="thead-light">
                 <tr>
-                  <th>Index</th>
                   <th>Name</th>
-                  <th>Driving Class</th>
+                  <th>Aadhaar ID</th>
+                  <th>Record Link</th>
                   <th>Validated</th>
                   {/* <th>Action</th> */}
                 </tr>
@@ -68,9 +70,9 @@ const CredentialTable = () => {
                 {vcData.map((data, index) => {
                   return (
                     <tr>
-                    <th scope="row">{index+1}</th>
                     <td>{data.validatedResult.suppliedCredentials[0].credentialSubject.data.givenName}</td>
-                    <td>{data.drivingClass ? <p>{data.drivingClass}</p>:<p> No Driving Class </p> }</td>
+                    <td><p>{data.aadhaarId}</p></td>
+                    <td><a href={data.drivingClass} >{data.drivingClass}</a></td>
                     <td>{data.validatedResult.isValid ? <img src={CheckCircle} alt='check' style={{height: '28px'}} /> : 
                         <img src={CrossCircle} alt='cross' style={{height: '28px'}} />
                     }

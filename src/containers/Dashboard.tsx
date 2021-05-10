@@ -10,7 +10,7 @@ const Dashboard: FC = () => {
     <div className="Home">
       <Card>
         <Card.Header as="h5">
-          Applicants' Credentials Table
+          Applicants' Health Record
         </Card.Header>
         <Card.Body children={<CredentialTable />} />
       </Card>
